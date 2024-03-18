@@ -1,0 +1,112 @@
+----------------SERIE FIBONACHI-----------------
+calculo INICIO{
+
+NUM cantidad,indice ;
+NUM num1,num2,num3;
+
+IMPRIMIR(#---GENERADOR DE SERIE DE FIBONACCI---#);
+cantidad = LEER(#Ingresa la cantidad de números en la serie Fibonacci:#);
+
+SI(cantidad <= 0){
+        IMPRIMIR(#La cantidad debe ser un numero positivo y mayor que cero.#);
+FIN}
+
+SI(cantidad == 1){
+        IMPRIMIR(#Serie Fibonacci:#);
+        IMPRIMIR(#1#);
+FIN}
+
+SI(cantidad >= 1){
+
+num1=1;
+num2=1;
+indice=2;
+
+IMPRIMIR(#Serie Fibonacci:#);
+IMPRIMIR(num1);
+IMPRIMIR(num2);
+
+MIENTRAS(indice < cantidad) {
+    num3=num1+num2;
+    IMPRIMIR(num3);
+    num1=num2;
+    num2=num3;
+    indice=indice+1;
+FMIENTRAS}
+FIN}
+FINAL}
+
+
+----------------FACTORIAL DE UN NUMERO-----------------
+calculo INICIO{
+
+DBL num ;
+NUM fact,indice;
+
+fact=1;
+
+IMPRIMIR(#---CALCULO DE FACTORIAL---#);
+num = LEER(#Ingresa un numero para calcular su factorial:#);
+
+SI(num < 0){
+IMPRIMIR(#El factorial de numeros negativos no esta definido.#);
+FIN}
+
+SI(num >= 0){
+indice = 1;
+MIENTRAS(indice <= num){
+
+fact = fact * indice;
+indice=indice+1;
+FMIENTRAS}
+
+IMPRIMIR(#El  FACTORIAL DE # + num + #ES:#);
+IMPRIMIR(fact);
+
+FIN}
+
+FINAL}
+
+
+----------------NUMEROS PRIMOS-----------------
+calculo INICIO{
+
+NUM cantidad, numero, i, es_primo, mostrados;
+NUM contador,divisor,divisor2;
+
+numero = 2;
+es_primo = 1;
+contador = 0;
+mostrados = 0;
+
+IMPRIMIR(#---GENERADOR DE NUMEROS PRIMOS---#);
+cantidad = LEER(#Ingrese la cantidad de numeros primos que desea mostrar:#);
+
+SI(cantidad <= 0){
+    IMPRIMIR(#La cantidad debe ser un numero positivo y mayor que cero.#);
+FIN}
+
+SI(cantidad>0){
+    numero = 2; 
+    IMPRIMIR(#Los primeros # + cantidad + # numeros primos son:#);
+    MIENTRAS(mostrados < cantidad) {
+        i = 2;
+        es_primo = 1;
+divisor = numero / 2;
+MIENTRAS(i <= divisor) {
+divisor2= numero % i;
+            SI(divisor2 == 0) {
+                es_primo = 0;
+            FIN}
+            i = i + 1;
+        FMIENTRAS}
+
+        SI(es_primo == 1) {
+            IMPRIMIR(numero);
+            mostrados = mostrados + 1;
+        FIN}
+        numero = numero + 1;
+    FMIENTRAS}
+FIN}
+
+FINAL}
